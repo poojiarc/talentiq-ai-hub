@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { services } from "@/data/services";
 import { ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/services/")({
+export const Route = createFileRoute("/services_/")({
   head: () => ({
     meta: [
       { title: "Services — TalentIQ AI" },

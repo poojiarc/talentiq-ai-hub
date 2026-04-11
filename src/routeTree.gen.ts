@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesIndexRouteImport } from './routes/services_.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const ContactRoute = ContactRouteImport.update({
@@ -31,7 +31,7 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/services/',
+  id: '/services_/',
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
@@ -61,7 +61,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/services/': typeof ServicesIndexRoute
+  '/services_/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -74,7 +74,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services/$slug'
-    | '/services/'
+    | '/services_/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -108,8 +108,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
+    '/services_/': {
+      id: '/services_/'
       path: '/services'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
