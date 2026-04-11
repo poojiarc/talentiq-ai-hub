@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Home, Info, Briefcase, Phone, Instagram, Linkedin } from "lucide-react";
+import { Home, Info, Briefcase, Phone, Instagram, Linkedin, Mail, Heart, Monitor, Brain, Users, Code, Cloud, BarChart3, Server, Cog } from "lucide-react";
 
 const quickLinks = [
   { label: "Home", to: "/" as const, icon: Home },
@@ -8,15 +8,15 @@ const quickLinks = [
   { label: "Contact", to: "/contact" as const, icon: Phone },
 ];
 
-const services = [
-  "IT Consulting & Strategy",
-  "AI & Digital Transformation",
-  "Talent Solutions & Staffing",
-  "Software Development",
-  "Cloud Consulting",
-  "Data Analytics & BI",
-  "Managed IT Services",
-  "Process Automation",
+const serviceLinks = [
+  { label: "IT Consulting & Strategy", icon: Monitor },
+  { label: "AI & Digital Transformation", icon: Brain },
+  { label: "Talent Solutions & Staffing", icon: Users },
+  { label: "Software Development", icon: Code },
+  { label: "Cloud Consulting", icon: Cloud },
+  { label: "Data Analytics & BI", icon: BarChart3 },
+  { label: "Managed IT Services", icon: Server },
+  { label: "Process Automation", icon: Cog },
 ];
 
 export function Footer() {
@@ -26,7 +26,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo & Description */}
           <div>
-            <img src="/images/logo.jpeg" alt="TalentIQ AI" className="h-8 mb-4" />
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/images/logo.jpeg" alt="TalentIQ AI" className="h-10 rounded-md" />
+              <div className="flex flex-col leading-tight">
+                <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENTIQ AI</span>
+                <span className="text-muted-foreground text-[11px] font-medium">Smarter Talent Solutions</span>
+              </div>
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               TalentIQ AI empowers businesses with intelligent IT consulting,
               AI-driven transformation, and scalable talent solutions.
@@ -73,13 +79,14 @@ export function Footer() {
           <div>
             <h3 className="text-foreground font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
-              {services.map((s) => (
-                <li key={s}>
+              {serviceLinks.map((s) => (
+                <li key={s.label}>
                   <Link
                     to="/services"
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm transition-colors"
                   >
-                    {s}
+                    <s.icon size={14} />
+                    {s.label}
                   </Link>
                 </li>
               ))}
@@ -91,8 +98,15 @@ export function Footer() {
             <h3 className="text-foreground font-semibold mb-4">Contact</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="tel:+917386150261" className="hover:text-foreground transition-colors">
+                <a href="tel:+917386150261" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Phone size={14} />
                   +91 73861 50261
+                </a>
+              </li>
+              <li>
+                <a href="mailto:poojimedabayina@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Mail size={14} />
+                  poojimedabayina@gmail.com
                 </a>
               </li>
               <li>Mon–Fri: 9 AM – 6 PM EST</li>
@@ -103,20 +117,25 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border py-6 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} TalentIQ AI. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Made with <span className="text-destructive">❤️</span> by{" "}
-            <a
-              href="https://staffarc.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gradient font-medium"
-            >
-              StaffArc
-            </a>
-          </p>
+      <div className="border-t border-border mt-0 pt-8 pb-8 flex flex-col items-center gap-4 px-6">
+        <p className="text-xs text-muted-foreground">
+          © {new Date().getFullYear()} TalentIQ AI. All rights reserved.
+        </p>
+        <div className="flex justify-center items-center gap-1 text-xs text-muted-foreground">
+          Made with <Heart className="inline h-4 w-4 text-destructive mx-1" /> by
+          <a
+            href="https://staffarc.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-accent hover:underline"
+          >
+            <img
+              src="https://www.staffarc.in/images/Staffarc-logo.png"
+              alt="StaffArc logo"
+              className="h-5 w-5 object-contain"
+            />
+            StaffArc
+          </a>
         </div>
       </div>
     </footer>

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { services } from "@/data/services";
-import { Phone, Clock, Instagram, Linkedin } from "lucide-react";
+import { Phone, Clock, Instagram, Linkedin, Mail } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -56,6 +56,16 @@ function ContactPage() {
                 </div>
                 <a href="tel:+917386150261" className="text-muted-foreground hover:text-foreground transition-colors">
                   +91 73861 50261
+                </a>
+              </div>
+
+              <div className="bg-card border border-border rounded-xl p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <Mail className="text-gradient-orange" size={24} />
+                  <h3 className="text-foreground font-semibold text-lg">Email</h3>
+                </div>
+                <a href="mailto:poojimedabayina@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                  poojimedabayina@gmail.com
                 </a>
               </div>
 

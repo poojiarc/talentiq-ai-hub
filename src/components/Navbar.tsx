@@ -1,6 +1,6 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", to: "/" as const },
@@ -18,12 +18,16 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
     >
       <div className="flex items-center justify-between px-6 md:px-[120px] py-5">
         {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
           <img
             src="/images/logo.jpeg"
             alt="TalentIQ AI"
-            className="h-[25px] w-auto"
+            className="h-[40px] w-auto rounded-md"
           />
+          <div className="flex flex-col leading-tight">
+            <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENTIQ AI</span>
+            <span className="text-muted-foreground text-[11px] font-medium">Smarter Talent Solutions</span>
+          </div>
         </Link>
 
         {/* Desktop Nav Links */}
