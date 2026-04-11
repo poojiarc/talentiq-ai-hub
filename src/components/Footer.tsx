@@ -9,14 +9,14 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "IT Consulting & Strategy", icon: Monitor },
-  { label: "AI & Digital Transformation", icon: Brain },
-  { label: "Talent Solutions & Staffing", icon: Users },
-  { label: "Software Development", icon: Code },
-  { label: "Cloud Consulting", icon: Cloud },
-  { label: "Data Analytics & BI", icon: BarChart3 },
-  { label: "Managed IT Services", icon: Server },
-  { label: "Process Automation", icon: Cog },
+  { label: "IT Consulting & Strategy", to: "/services/it-consulting", icon: Monitor },
+  { label: "AI & Digital Transformation", to: "/services/ai-transformation", icon: Brain },
+  { label: "Talent Solutions & Staffing", to: "/services/talent-solutions", icon: Users },
+  { label: "Software Development", to: "/services/software-development", icon: Code },
+  { label: "Cloud Consulting", to: "/services/cloud-consulting", icon: Cloud },
+  { label: "Data Analytics & BI", to: "/services/data-analytics", icon: BarChart3 },
+  { label: "Managed IT Services", to: "/services/managed-it-services", icon: Server },
+  { label: "Process Automation", to: "/services/process-automation", icon: Cog },
 ];
 
 export function Footer() {
