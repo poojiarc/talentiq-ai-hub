@@ -23,15 +23,6 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center pt-[200px] md:pt-[280px] pb-[102px] px-6">
         <div className="flex flex-col items-center gap-10 max-w-3xl text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-foreground/10 border border-foreground/20 px-4 py-2">
-            <span className="w-1 h-1 rounded-full bg-foreground" />
-            <span className="text-[13px] font-medium">
-              <span className="text-foreground/60">Early access available from</span>{" "}
-              <span className="text-foreground">May 1, 2026</span>
-            </span>
-          </div>
-
           {/* Heading */}
           <h1 className="hero-heading-gradient text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[613px]">
             Smarter Talent. Intelligent Solutions. Powered by AI.

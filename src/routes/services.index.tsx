@@ -37,17 +37,28 @@ function ServicesPage() {
                 key={service.slug}
                 to="/services/$slug"
                 params={{ slug: service.slug }}
-                className="group bg-card border border-border rounded-xl p-8 hover:border-gradient-pink/40 transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-xl overflow-hidden border border-border hover:border-gradient-pink/40 transition-all duration-300 hover:-translate-y-1 h-[280px]"
               >
-                <h3 className="text-foreground font-semibold text-lg mb-3 group-hover:text-gradient transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {service.shortDescription}
-                </p>
-                <span className="text-gradient text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more <ArrowRight size={14} />
-                </span>
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  loading="lazy"
+                  width={800}
+                  height={512}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-background/70" />
+                <div className="relative z-10 p-8 flex flex-col justify-end h-full">
+                  <h3 className="text-foreground font-semibold text-lg mb-3 group-hover:text-gradient transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {service.shortDescription}
+                  </p>
+                  <span className="text-gradient text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
