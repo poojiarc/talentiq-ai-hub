@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
@@ -24,25 +25,41 @@ export function HeroSection() {
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center pt-[200px] md:pt-[280px] pb-[102px] px-6">
         <div className="flex flex-col items-center gap-10 max-w-3xl text-center">
           {/* Heading */}
-          <h1 className="hero-heading-gradient text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[613px]">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="hero-heading-gradient text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[613px]"
+          >
             Smarter Talent. Intelligent Solutions. Powered by AI.
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className="text-[15px] font-normal text-foreground/70 max-w-[680px] mt-[-16px]">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="text-[15px] font-normal text-foreground/70 max-w-[680px] mt-[-16px]"
+          >
             TalentIQ AI empowers businesses with intelligent IT consulting,
             AI-driven transformation, and scalable talent solutions—helping
             organizations innovate faster, operate smarter, and stay ahead in a
             digital-first world.
-          </p>
+          </motion.p>
 
           {/* CTA */}
-          <Link
-            to="/contact"
-            className="glow-btn rounded-full border border-foreground/60 bg-foreground text-background px-[29px] py-[11px] text-[14px] font-medium hover:bg-foreground/90 transition-colors"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
-            Get in Touch
-          </Link>
+            <Link
+              to="/contact"
+              className="glow-btn rounded-full border border-foreground/60 bg-foreground text-background px-[29px] py-[11px] text-[14px] font-medium hover:bg-foreground/90 transition-colors"
+            >
+              Get in Touch
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
