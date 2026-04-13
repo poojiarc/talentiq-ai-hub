@@ -25,7 +25,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             className="h-[40px] w-auto rounded-md"
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENTIQ AI</span>
+            <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENT IQ AI</span>
             <span className="text-muted-foreground text-[11px] font-medium">Smarter Talent Solutions</span>
           </div>
         </Link>

@@ -29,12 +29,12 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img src="/images/logo.jpeg" alt="TalentIQ AI" className="h-10 rounded-md" />
               <div className="flex flex-col leading-tight">
-                <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENTIQ AI</span>
+                <span className="text-foreground font-semibold text-[16px] tracking-tight">TALENT IQ AI</span>
                 <span className="text-muted-foreground text-[11px] font-medium">Smarter Talent Solutions</span>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              TalentIQ AI empowers businesses with intelligent IT consulting,
+              Talent IQ AI empowers businesses with intelligent IT consulting,
               AI-driven transformation, and scalable talent solutions.
             </p>
             <div className="flex gap-4 mt-6">
@@ -107,7 +107,7 @@ export function Footer() {
               <li>
                 <a href="mailto:poojimedabayina@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Mail size={14} />
-                  poojimedabayina@gmail.com
+                  hr@talentiqai.com
                 </a>
               </li>
               <li>Mon–Fri: 9 AM – 6 PM EST</li>
@@ -120,7 +120,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-border mt-0 pt-8 pb-8 flex flex-col items-center gap-4 px-6">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} TalentIQ AI. All rights reserved.
+          © {new Date().getFullYear()} Talent IQ AI. All rights reserved.
         </p>
         <div className="flex justify-center items-center gap-1 text-xs text-muted-foreground">
           Made with <Heart className="inline h-4 w-4 text-destructive mx-1" /> by
