@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { services } from "@/data/services";
 import { Phone, Clock, Instagram, Linkedin, Mail } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -32,53 +33,58 @@ function ContactPage() {
     window.open(`https://wa.me/917386150261?text=${text}`, "_blank");
   };
 
+  const contactCards = [
+    { icon: <Phone className="text-gradient-pink" size={24} />, title: "Phone", content: <a href="tel:+917386150261" className="text-muted-foreground hover:text-foreground transition-colors">+91 73861 50261</a> },
+    { icon: <Mail className="text-gradient-orange" size={24} />, title: "Email", content: <a href="mailto:poojimedabayina@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">poojimedabayina@gmail.com</a> },
+    { icon: <Clock className="text-gradient-orange" size={24} />, title: "Business Hours", content: <><p className="text-muted-foreground">Mon–Fri: 9 AM – 6 PM EST</p><p className="text-muted-foreground">Sat–Sun: Holiday</p></> },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-24 pb-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-center mb-16"
+          >
             <h1 className="text-4xl md:text-5xl font-semibold mb-6">
               Get in <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               We'd love to hear from you. Let's discuss how we can help your business.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-16">
             {/* Contact Info */}
             <div className="space-y-8">
-              <div className="bg-card border border-border rounded-xl p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <Phone className="text-gradient-pink" size={24} />
-                  <h3 className="text-foreground font-semibold text-lg">Phone</h3>
-                </div>
-                <a href="tel:+917386150261" className="text-muted-foreground hover:text-foreground transition-colors">
-                  +91 73861 50261
-                </a>
-              </div>
+              {contactCards.map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-card border border-border rounded-xl p-8"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    {card.icon}
+                    <h3 className="text-foreground font-semibold text-lg">{card.title}</h3>
+                  </div>
+                  {card.content}
+                </motion.div>
+              ))}
 
-              <div className="bg-card border border-border rounded-xl p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <Mail className="text-gradient-orange" size={24} />
-                  <h3 className="text-foreground font-semibold text-lg">Email</h3>
-                </div>
-                <a href="mailto:poojimedabayina@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                  poojimedabayina@gmail.com
-                </a>
-              </div>
-
-              <div className="bg-card border border-border rounded-xl p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <Clock className="text-gradient-orange" size={24} />
-                  <h3 className="text-foreground font-semibold text-lg">Business Hours</h3>
-                </div>
-                <p className="text-muted-foreground">Mon–Fri: 9 AM – 6 PM EST</p>
-                <p className="text-muted-foreground">Sat–Sun: Holiday</p>
-              </div>
-
-              <div className="bg-card border border-border rounded-xl p-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-card border border-border rounded-xl p-8"
+              >
                 <h3 className="text-foreground font-semibold text-lg mb-4">Follow Us</h3>
                 <div className="flex gap-4">
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -88,11 +94,18 @@ function ContactPage() {
                     <Linkedin size={24} />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <motion.form
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
+            >
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Name</label>
                 <input
@@ -151,13 +164,15 @@ function ContactPage() {
                   placeholder="Tell us about your project"
                 />
               </div>
-              <button
+              <motion.button
                 type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className="w-full bg-gradient-brand text-background font-medium py-3 rounded-full hover:opacity-90 transition-opacity"
               >
                 Send via WhatsApp
-              </button>
-            </form>
+              </motion.button>
+            </motion.form>
           </div>
         </div>
       </main>
