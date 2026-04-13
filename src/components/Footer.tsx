@@ -58,6 +58,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
+          {/* Quick Links */}
           <div>
             <h3 className="text-foreground font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
