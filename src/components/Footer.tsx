@@ -9,14 +9,14 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "IT Consulting & Strategy", to: "/services/it-consulting", icon: Monitor },
-  { label: "AI & Digital Transformation", to: "/services/ai-transformation", icon: Brain },
-  { label: "Talent Solutions & Staffing", to: "/services/talent-solutions", icon: Users },
-  { label: "Software Development", to: "/services/software-development", icon: Code },
-  { label: "Cloud Consulting", to: "/services/cloud-consulting", icon: Cloud },
-  { label: "Data Analytics & BI", to: "/services/data-analytics", icon: BarChart3 },
-  { label: "Managed IT Services", to: "/services/managed-it-services", icon: Server },
-  { label: "Process Automation", to: "/services/process-automation", icon: Cog },
+  { label: "IT Consulting & Strategy", slug: "it-consulting-strategy", icon: Monitor },
+  { label: "AI & Digital Transformation", slug: "ai-digital-transformation", icon: Brain },
+  { label: "Talent Solutions & Staffing", slug: "talent-solutions-staffing", icon: Users },
+  { label: "Software Development", slug: "software-development", icon: Code },
+  { label: "Cloud Consulting", slug: "cloud-consulting", icon: Cloud },
+  { label: "Data Analytics & BI", slug: "data-analytics-bi", icon: BarChart3 },
+  { label: "Managed IT Services", slug: "managed-it-services", icon: Server },
+  { label: "Process Automation", slug: "process-automation", icon: Cog },
 ];
 
 export function Footer() {
@@ -80,9 +80,10 @@ export function Footer() {
             <h3 className="text-foreground font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
               {serviceLinks.map((s) => (
-                <li key={s.label}>
+                <li key={s.slug}>
                   <Link
-                    to="/services"
+                    to="/services/$slug"
+                    params={{ slug: s.slug }}
                     className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm transition-colors"
                   >
                     <s.icon size={14} />
