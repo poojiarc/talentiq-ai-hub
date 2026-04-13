@@ -1,10 +1,16 @@
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 
 export function HomeAbout() {
   return (
     <section className="py-24 px-6 md:px-12">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
             About <span className="text-gradient">TalentIQ AI</span>
           </h2>
@@ -24,12 +30,18 @@ export function HomeAbout() {
           >
             Learn More →
           </Link>
-        </div>
-        <div className="bg-gradient-brand rounded-2xl p-[1px]">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          className="bg-gradient-brand rounded-2xl p-[1px]"
+        >
           <div className="bg-card rounded-2xl p-12 flex items-center justify-center min-h-[300px]">
             <img src="/images/logo.jpeg" alt="TalentIQ AI" className="max-w-[280px] w-full" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
