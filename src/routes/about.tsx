@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -21,18 +22,29 @@ function AboutPage() {
       <main className="pt-24 pb-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Hero */}
-          <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-center mb-20"
+          >
             <h1 className="text-4xl md:text-5xl font-semibold mb-6">
               About <span className="text-gradient">TalentIQ AI</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               A next-generation IT services and consulting company transforming how businesses operate, innovate, and grow.
             </p>
-          </div>
+          </motion.div>
 
           {/* Content */}
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
-            <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="space-y-6"
+            >
               <p className="text-muted-foreground leading-relaxed">
                 Talent IQ AI is a next-generation IT services and consulting company that combines deep industry expertise with cutting-edge artificial intelligence to transform how businesses operate, innovate, and grow.
               </p>
@@ -45,12 +57,18 @@ function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 At TalentIQ AI, we believe that the intersection of human intelligence and artificial intelligence is where true innovation happens. Our mission is to help organizations harness this synergy to achieve extraordinary results.
               </p>
-            </div>
-            <div className="bg-gradient-brand rounded-2xl p-[1px]">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="bg-gradient-brand rounded-2xl p-[1px]"
+            >
               <div className="bg-card rounded-2xl p-12 flex items-center justify-center min-h-[400px]">
                 <img src="/images/logo.jpeg" alt="TalentIQ AI" className="max-w-[300px] w-full" />
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Values */}
@@ -59,11 +77,18 @@ function AboutPage() {
               { title: "Innovation First", desc: "We push boundaries with AI-driven solutions that keep you ahead of the curve." },
               { title: "People-Centric", desc: "Our talent solutions are built around understanding what makes great teams thrive." },
               { title: "Results-Driven", desc: "Every engagement is measured by the tangible impact we deliver for your business." },
-            ].map((v) => (
-              <div key={v.title} className="bg-card border border-border rounded-xl p-8">
+            ].map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="bg-card border border-border rounded-xl p-8"
+              >
                 <h3 className="text-foreground font-semibold text-lg mb-3">{v.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
