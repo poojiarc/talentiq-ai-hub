@@ -7,14 +7,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — TalentIQ AI" },
-      { name: "description", content: "Get in touch with TalentIQ AI for intelligent IT consulting and talent solutions." },
-      { property: "og:title", content: "Contact — TalentIQ AI" },
-      { property: "og:description", content: "Reach out for IT consulting, AI transformation, and talent solutions." },
-    ],
-  }),
   component: ContactPage,
 });
 
@@ -59,7 +51,6 @@ function ContactPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-16">
-            {/* Contact Info */}
             <div className="space-y-8">
               {contactCards.map((card, i) => (
                 <motion.div
@@ -97,7 +88,6 @@ function ContactPage() {
               </motion.div>
             </div>
 
-            {/* Form */}
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0, x: 30 }}
@@ -108,45 +98,19 @@ function ContactPage() {
             >
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Name</label>
-                <input
-                  type="text"
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
-                  placeholder="Your name"
-                />
+                <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring" placeholder="Your name" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Phone</label>
-                <input
-                  type="tel"
-                  required
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
-                  placeholder="Your phone number"
-                />
+                <input type="tel" required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring" placeholder="Your phone number" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Email</label>
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
-                  placeholder="Your email"
-                />
+                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring" placeholder="Your email" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Service</label>
-                <select
-                  required
-                  value={form.service}
-                  onChange={(e) => setForm({ ...form, service: e.target.value })}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
-                >
+                <select required value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-1 focus:ring-ring">
                   <option value="">Select a service</option>
                   {services.map((s) => (
                     <option key={s.slug} value={s.title}>{s.title}</option>
@@ -155,21 +119,9 @@ function ContactPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Message</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
-                  placeholder="Tell us about your project"
-                />
+                <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none" placeholder="Tell us about your project" />
               </div>
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-brand text-background font-medium py-3 rounded-full hover:opacity-90 transition-opacity"
-              >
+              <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full bg-gradient-brand text-background font-medium py-3 rounded-full hover:opacity-90 transition-opacity">
                 Send via WhatsApp
               </motion.button>
             </motion.form>
