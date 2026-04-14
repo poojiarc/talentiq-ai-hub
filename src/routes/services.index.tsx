@@ -6,14 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/services/")({
-  head: () => ({
-    meta: [
-      { title: "Services — TalentIQ AI" },
-      { name: "description", content: "Explore our comprehensive IT services powered by AI." },
-      { property: "og:title", content: "Services — TalentIQ AI" },
-      { property: "og:description", content: "IT consulting, AI transformation, talent solutions, and more." },
-    ],
-  }),
   component: ServicesPage,
 });
 

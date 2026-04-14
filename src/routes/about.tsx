@@ -4,14 +4,6 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — TalentIQ AI" },
-      { name: "description", content: "Learn about TalentIQ AI, a next-generation IT services and consulting company." },
-      { property: "og:title", content: "About — TalentIQ AI" },
-      { property: "og:description", content: "Next-generation IT services and consulting powered by AI." },
-    ],
-  }),
   component: AboutPage,
 });
 
@@ -21,7 +13,6 @@ function AboutPage() {
       <Navbar />
       <main className="pt-24 pb-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
-          {/* Hero */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,7 +27,6 @@ function AboutPage() {
             </p>
           </motion.div>
 
-          {/* Content */}
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -71,7 +61,6 @@ function AboutPage() {
             </motion.div>
           </div>
 
-          {/* Values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "Innovation First", desc: "We push boundaries with AI-driven solutions that keep you ahead of the curve." },
